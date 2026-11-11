@@ -1,0 +1,82 @@
+{
+ "jobs": [
+  {
+   "id": 1001,
+   "title": "Senior Data Engineer, Platform",
+   "location": {
+    "name": "San Francisco, CA"
+   },
+   "absolute_url": "https://boards.greenhouse.io/stripe/jobs/1001",
+   "updated_at": "2026-11-01T09:00:00-04:00",
+   "first_published": "2026-10-20T12:00:00-04:00",
+   "requisition_id": "R1001",
+   "company_name": "Stripe",
+   "offices": [],
+   "metadata": null,
+   "content": "&lt;p&gt;We are looking for a Senior Data Engineer to build batch and streaming pipelines.&lt;/p&gt;&lt;h3&gt;What you&#x27;ll do&lt;/h3&gt;&lt;ul&gt;&lt;li&gt;Own pipelines in Spark and Airflow&lt;/li&gt;&lt;li&gt;Model data in dbt and Snowflake&lt;/li&gt;&lt;/ul&gt;&lt;h3&gt;Requirements&lt;/h3&gt;&lt;ul&gt;&lt;li&gt;5+ years of Python and SQL&lt;/li&gt;&lt;li&gt;Experience with Kafka&lt;/li&gt;&lt;/ul&gt;&lt;p&gt;The annual base salary range for this role in San Francisco is $180,000 - $250,000 USD per year. This role is full-time.&lt;/p&gt;"
+  },
+  {
+   "id": 1002,
+   "title": "Senior Data Engineer, Platform",
+   "location": {
+    "name": "Seattle, WA"
+   },
+   "absolute_url": "https://boards.greenhouse.io/stripe/jobs/1002",
+   "updated_at": "2026-11-01T09:00:00-04:00",
+   "first_published": "2026-10-20T12:00:00-04:00",
+   "requisition_id": "R1002",
+   "company_name": "Stripe",
+   "offices": [],
+   "metadata": null,
+   "content": "&lt;p&gt;We are looking for a Senior Data Engineer to build batch and streaming pipelines.&lt;/p&gt;&lt;h3&gt;What you&#x27;ll do&lt;/h3&gt;&lt;ul&gt;&lt;li&gt;Own pipelines in Spark and Airflow&lt;/li&gt;&lt;li&gt;Model data in dbt and Snowflake&lt;/li&gt;&lt;/ul&gt;&lt;h3&gt;Requirements&lt;/h3&gt;&lt;ul&gt;&lt;li&gt;5+ years of Python and SQL&lt;/li&gt;&lt;li&gt;Experience with Kafka&lt;/li&gt;&lt;/ul&gt;&lt;p&gt;The annual base salary range for this role in Seattle is $170,000 - $235,000 USD per year.&lt;/p&gt;"
+  },
+  {
+   "id": 1003,
+   "title": "Account Executive, Enterprise",
+   "location": {
+    "name": "New York, NY"
+   },
+   "absolute_url": "https://boards.greenhouse.io/stripe/jobs/1003",
+   "updated_at": "2026-11-01T09:00:00-04:00",
+   "first_published": "2026-10-20T12:00:00-04:00",
+   "requisition_id": "R1003",
+   "company_name": "Stripe",
+   "offices": [],
+   "metadata": null,
+   "content": "&lt;p&gt;Sell payments.&lt;/p&gt;"
+  },
+  {
+   "id": 1004,
+   "title": "Machine Learning Engineer, Fraud",
+   "location": {
+    "name": "Remote - US"
+   },
+   "absolute_url": "https://boards.greenhouse.io/stripe/jobs/1004",
+   "updated_at": "2026-11-01T09:00:00-04:00",
+   "first_published": "2026-10-20T12:00:00-04:00",
+   "requisition_id": "R1004",
+   "company_name": "Stripe",
+   "offices": [],
+   "metadata": null,
+   "content": "&lt;p&gt;Build fraud models with PyTorch and Python. This role is remote within the US.&lt;/p&gt;"
+  },
+  {
+   "id": 1005,
+   "title": "Data Engineer",
+   "location": {
+    "name": "Toronto, Canada"
+   },
+   "absolute_url": "https://boards.greenhouse.io/stripe/jobs/1005",
+   "updated_at": "2026-11-01T09:00:00-04:00",
+   "first_published": "2026-10-20T12:00:00-04:00",
+   "requisition_id": "R1005",
+   "company_name": "Stripe",
+   "offices": [],
+   "metadata": null,
+   "content": "&lt;p&gt;We are looking for a Data Engineer to build batch and streaming pipelines.&lt;/p&gt;&lt;h3&gt;What you&#x27;ll do&lt;/h3&gt;&lt;ul&gt;&lt;li&gt;Own pipelines in Spark and Airflow&lt;/li&gt;&lt;li&gt;Model data in dbt and Snowflake&lt;/li&gt;&lt;/ul&gt;&lt;h3&gt;Requirements&lt;/h3&gt;&lt;ul&gt;&lt;li&gt;5+ years of Python and SQL&lt;/li&gt;&lt;li&gt;Experience with Kafka&lt;/li&gt;&lt;/ul&gt;"
+  }
+ ],
+ "meta": {
+  "total": 5
+ }
+}

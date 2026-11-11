@@ -1,0 +1,3 @@
+id,run_id,url,reason,status_code,attempts,failed_at
+1,run_20261111T135904_9fcdce,https://api.lever.co/v0/postings/plaid?mode=json,"content_type_mismatch: expected json, got text/html",200,4,2026-11-11T13:59:19+00:00
+2,run_20261111T135904_9fcdce,https://news.ycombinator.com/item?id=46000000&p=2,http_503,503,4,2026-11-11T13:59:29+00:00

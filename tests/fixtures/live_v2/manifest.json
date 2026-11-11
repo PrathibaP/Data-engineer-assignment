@@ -1,0 +1,46 @@
+{
+ "https://boards-api.greenhouse.io/v1/boards/stripe/jobs?content=true": {
+  "file": "gh_stripe.json",
+  "content_type": "application/json; charset=utf-8"
+ },
+ "https://boards-api.greenhouse.io/v1/boards/airbnb/jobs?content=true": {
+  "file": "gh_airbnb.json",
+  "content_type": "application/json; charset=utf-8"
+ },
+ "https://boards-api.greenhouse.io/v1/boards/databricks/jobs?content=true": {
+  "file": "gh_databricks.json",
+  "content_type": "application/json; charset=utf-8"
+ },
+ "https://boards-api.greenhouse.io/v1/boards/figma/jobs?content=true": {
+  "file": "gh_figma.json",
+  "content_type": "application/json; charset=utf-8"
+ },
+ "https://boards-api.greenhouse.io/v1/boards/dropbox/jobs?content=true": {
+  "file": "gh_dropbox.json",
+  "content_type": "application/json; charset=utf-8"
+ },
+ "https://api.lever.co/v0/postings/palantir?mode=json": {
+  "file": "lever_palantir.json",
+  "content_type": "application/json; charset=utf-8"
+ },
+ "https://api.lever.co/v0/postings/plaid?mode=json": {
+  "file": "plaid_maintenance.html",
+  "content_type": "text/html"
+ },
+ "https://news.ycombinator.com/submitted?id=whoishiring": {
+  "file": "hn_submitted.html",
+  "content_type": "text/html; charset=utf-8"
+ },
+ "https://news.ycombinator.com/robots.txt": {
+  "file": "hn_robots.txt",
+  "content_type": "text/plain"
+ },
+ "https://news.ycombinator.com/item?id=46000000": {
+  "file": "hn_item_p1.html",
+  "content_type": "text/html; charset=utf-8"
+ },
+ "https://news.ycombinator.com/item?id=46000000&p=2": {
+  "status": 503,
+  "content_type": "text/html"
+ }
+}

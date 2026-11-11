@@ -1,0 +1,78 @@
+[
+ {
+  "id": "3b9d0c21-aaaa-4f2e-8a77-1c2d3e4f5a6b",
+  "text": "Data Engineer",
+  "hostedUrl": "https://jobs.lever.co/palantir/3b9d0c21-aaaa-4f2e-8a77-1c2d3e4f5a6b",
+  "categories": {
+   "location": "New York, NY",
+   "commitment": "Full-time",
+   "team": "Engineering",
+   "allLocations": [
+    "New York, NY"
+   ]
+  },
+  "workplaceType": "onsite",
+  "createdAt": 1761000000000,
+  "descriptionPlain": "Build data integrations in Python, Spark and SQL for government and commercial customers.",
+  "lists": [
+   {
+    "text": "Requirements",
+    "content": "<li>Python</li><li>Spark</li><li>Java</li>"
+   }
+  ],
+  "additionalPlain": "",
+  "country": "US",
+  "salaryRange": {
+   "min": 130000,
+   "max": 200000,
+   "currency": "USD",
+   "interval": "per-year-salary"
+  }
+ },
+ {
+  "id": "5e6f7a8b-bbbb-4c1d-9e2f-334455667788",
+  "text": "Machine Learning Engineer",
+  "hostedUrl": "https://jobs.lever.co/palantir/5e6f7a8b-bbbb-4c1d-9e2f-334455667788",
+  "categories": {
+   "location": "Palo Alto, CA",
+   "commitment": "Full-time",
+   "allLocations": [
+    "Palo Alto, CA"
+   ]
+  },
+  "workplaceType": "hybrid",
+  "createdAt": 1761500000000,
+  "descriptionPlain": "Train and deploy models with PyTorch on Kubernetes.",
+  "lists": [],
+  "additionalPlain": "",
+  "country": "US"
+ },
+ {
+  "id": "9a9a9a9a-cccc-4000-8000-000000000001",
+  "text": "Deployment Strategist",
+  "hostedUrl": "https://jobs.lever.co/palantir/9a9a9a9a-cccc-4000-8000-000000000001",
+  "categories": {
+   "location": "Washington, DC"
+  },
+  "workplaceType": "onsite",
+  "createdAt": 1761500000000,
+  "descriptionPlain": "Customer-facing.",
+  "lists": []
+ },
+ {
+  "id": "9a9a9a9a-dddd-4000-8000-000000000002",
+  "text": "Data Engineer",
+  "hostedUrl": "https://jobs.lever.co/palantir/9a9a9a9a-dddd-4000-8000-000000000002",
+  "categories": {
+   "location": "London, United Kingdom",
+   "allLocations": [
+    "London, United Kingdom"
+   ]
+  },
+  "workplaceType": "onsite",
+  "createdAt": 1761500000000,
+  "descriptionPlain": "Python and Spark.",
+  "lists": [],
+  "country": "GB"
+ }
+]

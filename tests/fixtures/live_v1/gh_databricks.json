@@ -1,0 +1,52 @@
+{
+ "jobs": [
+  {
+   "id": 3001,
+   "title": "Sr. Platform Engineer - Data Infrastructure",
+   "location": {
+    "name": "Mountain View, CA"
+   },
+   "absolute_url": "https://boards.greenhouse.io/databricks/jobs/3001",
+   "updated_at": "2026-11-01T09:00:00-04:00",
+   "first_published": "2026-10-20T12:00:00-04:00",
+   "requisition_id": "R3001",
+   "company_name": "Databricks",
+   "offices": [],
+   "metadata": null,
+   "content": "&lt;p&gt;Run the Spark and Kafka platform on Kubernetes and AWS. Onsite in Mountain View. Python, Scala, Terraform.&lt;/p&gt;"
+  },
+  {
+   "id": 3002,
+   "title": "Platform Engineer",
+   "location": {
+    "name": "San Francisco, CA"
+   },
+   "absolute_url": "https://boards.greenhouse.io/databricks/jobs/3002",
+   "updated_at": "2026-11-01T09:00:00-04:00",
+   "first_published": "2026-10-20T12:00:00-04:00",
+   "requisition_id": "R3002",
+   "company_name": "Databricks",
+   "offices": [],
+   "metadata": null,
+   "content": "&lt;p&gt;Own our web CI/CD, build tooling and developer experience. React and TypeScript a plus.&lt;/p&gt;"
+  },
+  {
+   "id": 3003,
+   "title": "Solutions Architect",
+   "location": {
+    "name": "Chicago, IL"
+   },
+   "absolute_url": "https://boards.greenhouse.io/databricks/jobs/3003",
+   "updated_at": "2026-11-01T09:00:00-04:00",
+   "first_published": "2026-10-20T12:00:00-04:00",
+   "requisition_id": "R3003",
+   "company_name": "Databricks",
+   "offices": [],
+   "metadata": null,
+   "content": "&lt;p&gt;Customer-facing.&lt;/p&gt;"
+  }
+ ],
+ "meta": {
+  "total": 3
+ }
+}

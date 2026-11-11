@@ -1,0 +1,5 @@
+id,posting_id,run_id,field,old_value,new_value,changed_at
+1,pst_14d4f15214c9ab5e,run_20261111T135904_9fcdce,salary_min,180000.0,190000.0,2026-11-11T13:59:04+00:00
+2,pst_14d4f15214c9ab5e,run_20261111T135904_9fcdce,salary_max,250000.0,260000.0,2026-11-11T13:59:04+00:00
+3,pst_ffb0a24a5d50d26b,run_20261111T135904_9fcdce,status,open,closed,2026-11-11T13:59:04+00:00
+4,pst_140cea028e608f65,run_20261111T135904_9fcdce,city,Austin,New York,2026-11-11T13:59:04+00:00

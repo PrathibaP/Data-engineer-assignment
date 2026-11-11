@@ -1,0 +1,5 @@
+User-agent: *
+Disallow: /x?
+Disallow: /vote?
+Disallow: /reply?
+Crawl-delay: 1

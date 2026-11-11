@@ -1,0 +1,22 @@
+{
+ "jobs": [
+  {
+   "id": 4001,
+   "title": "Data Engineer II",
+   "location": {
+    "name": "Remote (US)"
+   },
+   "absolute_url": "https://boards.greenhouse.io/dropbox/jobs/4001",
+   "updated_at": "2026-11-01T09:00:00-04:00",
+   "first_published": "2026-10-20T12:00:00-04:00",
+   "requisition_id": "R4001",
+   "company_name": "Dropbox",
+   "offices": [],
+   "metadata": null,
+   "content": "&lt;p&gt;Remote in the US. Build data pipelines with Python, Airflow and BigQuery. Salary: $150,000 - $185,000 per year. We are unable to sponsor visas for this role.&lt;/p&gt;"
+  }
+ ],
+ "meta": {
+  "total": 1
+ }
+}

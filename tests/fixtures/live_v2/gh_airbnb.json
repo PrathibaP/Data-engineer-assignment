@@ -1,0 +1,52 @@
+{
+ "jobs": [
+  {
+   "id": 2001,
+   "title": "Staff Machine Learning Engineer - Search",
+   "location": {
+    "name": "San Francisco, CA"
+   },
+   "absolute_url": "https://boards.greenhouse.io/airbnb/jobs/2001",
+   "updated_at": "2026-11-01T09:00:00-04:00",
+   "first_published": "2026-10-20T12:00:00-04:00",
+   "requisition_id": "R2001",
+   "company_name": "Airbnb",
+   "offices": [],
+   "metadata": null,
+   "content": "&lt;p&gt;Lead ranking models for search using TensorFlow, Spark and Python. This is a hybrid role, 3 days in office.&lt;/p&gt;&lt;p&gt;Pay range: $220,000\u2014$300,000 USD annually.&lt;/p&gt;"
+  },
+  {
+   "id": 2002,
+   "title": "Software Engineer, Frontend",
+   "location": {
+    "name": "San Francisco, CA"
+   },
+   "absolute_url": "https://boards.greenhouse.io/airbnb/jobs/2002",
+   "updated_at": "2026-11-01T09:00:00-04:00",
+   "first_published": "2026-10-20T12:00:00-04:00",
+   "requisition_id": "R2002",
+   "company_name": "Airbnb",
+   "offices": [],
+   "metadata": null,
+   "content": "&lt;p&gt;React and TypeScript.&lt;/p&gt;"
+  },
+  {
+   "id": 2003,
+   "title": "Analytics Engineer",
+   "location": {
+    "name": "New York, NY"
+   },
+   "absolute_url": "https://boards.greenhouse.io/airbnb/jobs/2003",
+   "updated_at": "2026-11-01T09:00:00-04:00",
+   "first_published": "2026-10-20T12:00:00-04:00",
+   "requisition_id": "R2003",
+   "company_name": "Airbnb",
+   "offices": [],
+   "metadata": null,
+   "content": "&lt;p&gt;Own dbt models and SQL metrics layers in our lakehouse. Hybrid in New York.&lt;/p&gt;"
+  }
+ ],
+ "meta": {
+  "total": 3
+ }
+}

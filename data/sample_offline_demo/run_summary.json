@@ -1,0 +1,143 @@
+{
+  "run_id": "run_20261111T135904_9fcdce",
+  "started_at": "2026-11-11T13:59:04+00:00",
+  "provider": "mock",
+  "model": "mock-heuristic-v1",
+  "sources": [
+    {
+      "source": "greenhouse",
+      "board": "stripe",
+      "ok": true,
+      "complete": true,
+      "seen": 4,
+      "prefiltered": 2,
+      "stored_roles": 2,
+      "inactivated": 1,
+      "errors": [],
+      "note": null
+    },
+    {
+      "source": "greenhouse",
+      "board": "airbnb",
+      "ok": true,
+      "complete": true,
+      "seen": 3,
+      "prefiltered": 2,
+      "stored_roles": 2,
+      "inactivated": 0,
+      "errors": [],
+      "note": null
+    },
+    {
+      "source": "greenhouse",
+      "board": "databricks",
+      "ok": true,
+      "complete": true,
+      "seen": 3,
+      "prefiltered": 1,
+      "stored_roles": 1,
+      "inactivated": 0,
+      "errors": [],
+      "note": null
+    },
+    {
+      "source": "greenhouse",
+      "board": "figma",
+      "ok": true,
+      "complete": true,
+      "seen": 0,
+      "prefiltered": 0,
+      "stored_roles": 0,
+      "inactivated": 0,
+      "errors": [],
+      "note": null
+    },
+    {
+      "source": "greenhouse",
+      "board": "dropbox",
+      "ok": true,
+      "complete": true,
+      "seen": 1,
+      "prefiltered": 1,
+      "stored_roles": 1,
+      "inactivated": 0,
+      "errors": [],
+      "note": null
+    },
+    {
+      "source": "lever",
+      "board": "palantir",
+      "ok": true,
+      "complete": true,
+      "seen": 4,
+      "prefiltered": 2,
+      "stored_roles": 2,
+      "inactivated": 0,
+      "errors": [],
+      "note": null
+    },
+    {
+      "source": "lever",
+      "board": "plaid",
+      "ok": false,
+      "complete": false,
+      "seen": 0,
+      "prefiltered": 0,
+      "stored_roles": 0,
+      "inactivated": 0,
+      "errors": [
+        "content_type_mismatch: expected json, got text/html"
+      ],
+      "note": null
+    },
+    {
+      "source": "hackernews",
+      "board": "46000000",
+      "ok": true,
+      "complete": false,
+      "seen": 7,
+      "prefiltered": 5,
+      "stored_roles": 6,
+      "inactivated": 0,
+      "errors": [
+        "page 2 failed: http_503"
+      ],
+      "note": "Ask HN: Who is hiring? (November 2026)"
+    }
+  ],
+  "rejected": {},
+  "notes": [
+    "greenhouse 'figma' returned 0 jobs; substituted 'dropbox'"
+  ],
+  "new_postings": 0,
+  "merged_sources": 0,
+  "review_queued": 0,
+  "updated_sources": 14,
+  "changes": 4,
+  "closed": 1,
+  "reopened": 0,
+  "llm_calls": 2,
+  "cache_hits": 11,
+  "failures": 0,
+  "fields_dropped_by_guard": 3,
+  "llm_cost_usd": 0.0,
+  "llm_input_tokens": 168,
+  "llm_output_tokens": 270,
+  "failed_urls": [
+    {
+      "url": "https://api.lever.co/v0/postings/plaid?mode=json",
+      "reason": "content_type_mismatch: expected json, got text/html",
+      "status_code": 200,
+      "attempts": 4
+    },
+    {
+      "url": "https://news.ycombinator.com/item?id=46000000&p=2",
+      "reason": "http_503",
+      "status_code": 503,
+      "attempts": 4
+    }
+  ],
+  "postings_total": 17,
+  "postings_open": 16,
+  "finished_at": "2026-11-11T13:59:29+00:00"
+}

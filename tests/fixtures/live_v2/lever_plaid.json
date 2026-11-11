@@ -1,0 +1,42 @@
+[
+ {
+  "id": "1c1c1c1c-eeee-4000-8000-000000000003",
+  "text": "Senior Analytics Engineer",
+  "hostedUrl": "https://jobs.lever.co/plaid/1c1c1c1c-eeee-4000-8000-000000000003",
+  "categories": {
+   "location": "San Francisco",
+   "commitment": "Full-Time",
+   "allLocations": [
+    "San Francisco"
+   ]
+  },
+  "workplaceType": "hybrid",
+  "createdAt": 1761800000000,
+  "descriptionPlain": "Own dbt and SQL models on Snowflake.",
+  "lists": [],
+  "country": "US",
+  "salaryRange": {
+   "min": 170000,
+   "max": 210000,
+   "currency": "USD",
+   "interval": "per-year-salary"
+  }
+ },
+ {
+  "id": "8f1c2a7e-1111-4c3b-9a55-0e5c0b5d2222",
+  "text": "Senior Data Engineer",
+  "hostedUrl": "https://jobs.lever.co/plaid/8f1c2a7e-1111-4c3b-9a55-0e5c0b5d2222",
+  "categories": {
+   "location": "San Francisco",
+   "commitment": "Full-Time",
+   "allLocations": [
+    "San Francisco"
+   ]
+  },
+  "workplaceType": "hybrid",
+  "createdAt": 1761800000000,
+  "descriptionPlain": "Build streaming pipelines with Kafka, Flink and Python.",
+  "lists": [],
+  "country": "US"
+ }
+]
