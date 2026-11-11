@@ -19,46 +19,55 @@ Outputs go to `data/jobs.db` (SQLite) and `data/exports/`. The exports are `jobs
 The pipeline runs five stages over one `RunContext` (`pipeline/orchestrator.py`). The stages pass only plain data to each other, and failures are contained per board and per posting.
 
 ```mermaid
-flowchart LR
+flowchart TD
     subgraph SRC[Sources]
-        GH[Greenhouse API<br/>JSON]
-        LV[Lever API<br/>JSON]
-        HN[HN Who is hiring<br/>HTML + More pages]
+        direction LR
+        GH[Greenhouse API · JSON]
+        LV[Lever API · JSON]
+        HN[HN Who is hiring · HTML]
     end
 
     subgraph ING["1 · ingest"]
+        direction LR
         HTTP["PoliteClient<br/>robots.txt · 1 req/s/domain<br/>backoff · content-type check"]
         PARSE["parsers + pre-filter<br/>role & US rules, no LLM"]
+        HTTP --> PARSE
     end
 
     subgraph EXT["2 · extract"]
+        direction LR
         SNIP["snippet<br/>head + fact lines ≤ 6k chars"]
-        CACHE{{"extraction cache<br/>hash(prompt, model, input)"}}
+        CACHE{{"cache hit?<br/>hash(prompt, model, input)"}}
         LLM["LLM provider<br/>Anthropic · OpenAI · mock"]
         GUARD["Pydantic + evidence guard<br/>no snippet → null"]
+        SNIP --> CACHE
+        CACHE -- miss --> LLM --> GUARD
+        CACHE -- hit --> GUARD
     end
 
     subgraph RES["3 · resolve"]
-        REC["to_record<br/>ATS metadata wins · annualise · US check"]
-        DEDUP["dedup<br/>block by company · URL link<br/>weighted score + caps"]
-        UPS["idempotent upsert<br/>rebuild canonical · diff → history"]
+        direction LR
+        REC["to_record<br/>ATS metadata wins<br/>annualise · US check"]
+        DEDUP["dedup<br/>company block · URL link<br/>weighted score + caps"]
+        UPS["idempotent upsert<br/>rebuild canonical<br/>diff → change_history"]
+        REC --> DEDUP --> UPS
     end
 
-    REC2["4 · reconcile<br/>close only if board complete"]
-    REP["5 · report<br/>CSV exports · run summary · eval"]
+    subgraph OUT["4–5 · finish"]
+        direction LR
+        RECON["4 · reconcile<br/>close only if board<br/>fetched completely"]
+        REP["5 · report<br/>CSV exports · run summary<br/>evaluation"]
+        RECON --> REP
+    end
 
-    DB[(SQLite<br/>postings · source_postings · evidence<br/>change_history · dedup_review<br/>raw_responses · llm_calls · runs)]
-    RAW[(data/raw<br/>content-addressed bodies)]
+    DB[("SQLite: postings · source_postings · evidence · change_history<br/>dedup_review · raw_responses · llm_calls · runs")]
+    RAW[("data/raw · content-addressed bodies")]
 
-    GH & LV & HN --> HTTP --> PARSE --> SNIP --> CACHE
-    CACHE -- miss --> LLM --> GUARD
-    CACHE -- hit --> GUARD
-    GUARD --> REC --> DEDUP --> UPS --> REC2 --> REP
-    HTTP -. raw bodies .-> RAW
-    HTTP -. failures .-> DB
-    UPS --> DB
-    REC2 --> DB
-    DB --> REP
+    SRC --> ING --> EXT --> RES --> OUT
+    ING -. raw bodies .-> RAW
+    ING -. fetch failures .-> DB
+    RES --> DB
+    OUT <--> DB
 ```
 
 | Layer | Package | Responsibility |
