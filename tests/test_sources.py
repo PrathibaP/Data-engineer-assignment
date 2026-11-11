@@ -4,8 +4,8 @@ from datetime import date
 
 from conftest import FIXTURES, ScriptedTransport, html_resp, json_resp
 
-from pipeline.scraper_base import FixtureTransport
-from pipeline.sources import greenhouse, hackernews, lever
+from pipeline.ingest.http import FixtureTransport
+from pipeline.ingest import greenhouse, hackernews, lever
 
 
 def _load(name):

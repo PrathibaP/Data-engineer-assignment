@@ -19,7 +19,7 @@ import sqlite3
 from datetime import datetime, timezone
 from pathlib import Path
 
-from .normalizer import company_key, normalize_title
+from pipeline.transform.normalize import company_key, normalize_title
 
 FIELDS = ["company", "title", "seniority", "city", "country", "remote_policy", "salary_min", "salary_max",
           "currency", "employment_type", "skills", "visa_sponsorship", "posted_date"]

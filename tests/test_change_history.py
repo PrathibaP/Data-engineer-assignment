@@ -1,5 +1,5 @@
 """Change history, closure and re-opening at the Store level."""
-from pipeline.change_tracker import Store, make_posting_id
+from pipeline.store.repository import Store, make_posting_id
 
 
 def rec(**kw):

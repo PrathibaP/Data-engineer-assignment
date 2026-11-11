@@ -9,8 +9,8 @@ sys.path.insert(0, str(ROOT))
 FIXTURES = ROOT / "tests" / "fixtures"
 
 from pipeline.config import load_settings  # noqa: E402
-from pipeline.database import connect  # noqa: E402
-from pipeline.scraper_base import PoliteClient, Response  # noqa: E402
+from pipeline.store.db import connect  # noqa: E402
+from pipeline.ingest.http import PoliteClient, Response  # noqa: E402
 
 
 class ScriptedTransport:

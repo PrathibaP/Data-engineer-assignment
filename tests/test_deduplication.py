@@ -1,5 +1,5 @@
 """Cross-source dedup: exact dupes, title variants, same title other city, other company, false positives."""
-from pipeline.deduplicator import AUTO_MERGE, REVIEW, Candidate, best_match, score_pair, title_similarity
+from pipeline.resolve.dedup import AUTO_MERGE, REVIEW, Candidate, best_match, score_pair, title_similarity
 
 
 def cand(key, source="greenhouse", board="stripe", jid="1", company="stripe", title="Senior Data Engineer",

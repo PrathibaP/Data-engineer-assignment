@@ -6,10 +6,10 @@ from datetime import date
 import pytest
 from conftest import FIXTURES
 
-from pipeline import evaluator
-from pipeline.database import connect
-from pipeline.extractor import AnthropicProvider, OpenAIProvider
-from pipeline.main import run
+from pipeline.report import evaluate as evaluator
+from pipeline.store.db import connect
+from pipeline.extract import AnthropicProvider, OpenAIProvider
+from pipeline.orchestrator import run
 
 
 def test_compare_outcomes():
@@ -82,7 +82,7 @@ def test_openai_adapter(monkeypatch):
 
 
 def test_missing_api_key_is_a_clear_error(settings):
-    from pipeline.extractor import make_provider
+    from pipeline.extract import make_provider
 
     settings.llm_provider, settings.llm_api_key = "anthropic", None
     with pytest.raises(RuntimeError, match="ANTHROPIC_API_KEY"):

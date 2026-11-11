@@ -17,8 +17,8 @@ import json
 import sqlite3
 from dataclasses import asdict
 
-from .database import dumps
-from .deduplicator import AUTO_MERGE, REVIEW, Candidate, best_match
+from pipeline.store.db import dumps
+from pipeline.resolve.dedup import AUTO_MERGE, REVIEW, Candidate, best_match
 
 TRACKED = ["company", "title", "seniority", "city", "country", "remote_policy", "salary_min", "salary_max",
            "currency", "employment_type", "visa_sponsorship", "posted_date", "status"]
@@ -123,7 +123,7 @@ class Store:
                     nv = int(bool(nv))
                 if (old if old is not None else None) != (nv if nv is not None else None) and str(old) != str(nv):
                     changes.append((f, old, nv))
-        from .normalizer import company_key, title_key
+        from pipeline.transform.normalize import company_key, title_key
 
         self.conn.execute(
             "UPDATE postings SET company=?,company_key=?,title=?,title_key=?,seniority=?,city=?,country=?,remote_policy=?,"

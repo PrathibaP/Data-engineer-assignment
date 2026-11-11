@@ -16,15 +16,78 @@ Outputs go to `data/jobs.db` (SQLite) and `data/exports/`. The exports are `jobs
 
 ## Architecture
 
+The pipeline runs five stages over one `RunContext` (`pipeline/orchestrator.py`). The stages pass only plain data to each other, and failures are contained per board and per posting.
+
+```mermaid
+flowchart LR
+    subgraph SRC[Sources]
+        GH[Greenhouse API<br/>JSON]
+        LV[Lever API<br/>JSON]
+        HN[HN Who is hiring<br/>HTML + More pages]
+    end
+
+    subgraph ING["1 · ingest"]
+        HTTP["PoliteClient<br/>robots.txt · 1 req/s/domain<br/>backoff · content-type check"]
+        PARSE["parsers + pre-filter<br/>role & US rules, no LLM"]
+    end
+
+    subgraph EXT["2 · extract"]
+        SNIP["snippet<br/>head + fact lines ≤ 6k chars"]
+        CACHE{{"extraction cache<br/>hash(prompt, model, input)"}}
+        LLM["LLM provider<br/>Anthropic · OpenAI · mock"]
+        GUARD["Pydantic + evidence guard<br/>no snippet → null"]
+    end
+
+    subgraph RES["3 · resolve"]
+        REC["to_record<br/>ATS metadata wins · annualise · US check"]
+        DEDUP["dedup<br/>block by company · URL link<br/>weighted score + caps"]
+        UPS["idempotent upsert<br/>rebuild canonical · diff → history"]
+    end
+
+    REC2["4 · reconcile<br/>close only if board complete"]
+    REP["5 · report<br/>CSV exports · run summary · eval"]
+
+    DB[(SQLite<br/>postings · source_postings · evidence<br/>change_history · dedup_review<br/>raw_responses · llm_calls · runs)]
+    RAW[(data/raw<br/>content-addressed bodies)]
+
+    GH & LV & HN --> HTTP --> PARSE --> SNIP --> CACHE
+    CACHE -- miss --> LLM --> GUARD
+    CACHE -- hit --> GUARD
+    GUARD --> REC --> DEDUP --> UPS --> REC2 --> REP
+    HTTP -. raw bodies .-> RAW
+    HTTP -. failures .-> DB
+    UPS --> DB
+    REC2 --> DB
+    DB --> REP
 ```
-sources/{greenhouse,lever,hackernews}.py   fetch + parse -> RawPosting   (deterministic pre-filter)
-        │  scraper_base.PoliteClient: robots.txt, ≤1 req/s/domain (+Crawl-delay), backoff, raw cache
-extractor.py     snippet -> LLM -> Pydantic -> evidence guard -> roles   (cache keyed by input hash)
-main.to_record   merge LLM fields with authoritative ATS metadata, annualise salary, US + role check
-deduplicator.py  match against stored postings (pure, unit-tested)
-change_tracker.py  upsert source rows, rebuild canonical record, write change_history, close missing
-exporter.py / evaluator.py
+
+| Layer | Package | Responsibility |
+|---|---|---|
+| ingest | `pipeline/ingest/` (`http.py`, `greenhouse.py`, `lever.py`, `hackernews.py`) | Polite fetching, raw cache, parsing into `RawPosting`, deterministic pre-filter |
+| extract | `pipeline/extract/` (`prompts.py`, `providers.py`, `guard.py`, `extractor.py`) | Snippet building, LLM adapters, validation and the evidence guard, cache, cost and budget |
+| transform | `pipeline/transform/` (`normalize.py`, `records.py`) | Company, title and location normalisation, salary annualisation, final eligibility |
+| resolve | `pipeline/resolve/dedup.py` | Pure matching functions with no database access (unit-tested in isolation) |
+| store | `pipeline/store/` (`db.py`, `repository.py`) | Schema, idempotent upserts, canonical rebuild, change history, closure |
+| report | `pipeline/report/` (`export.py`, `evaluate.py`) | CSV/JSON exports, labelled-set accuracy and cost |
+| wiring | `orchestrator.py`, `cli.py`, `config.py`, `models.py` | Stages, CLI, env config, Pydantic models |
+
+**What a re-run does:**
+
+```mermaid
+flowchart TD
+    A[posting fetched] --> B{source_key seen before?}
+    B -- yes --> C[update last_seen<br/>rebuild canonical]
+    B -- no --> D{dedup match}
+    D -- "≥ 0.85 or URL link" --> E[attach to existing posting]
+    D -- "0.65 – 0.85" --> F[new posting + dedup_review row]
+    D -- "< 0.65" --> G[new posting<br/>posting_id = sha1 of source_key]
+    C & E --> H{tracked field changed?}
+    H -- yes --> I[write change_history]
+    H -- no --> J[no history row]
+    K[board fetched completely?] -- yes --> L[rows not seen this run → inactive<br/>all sources inactive → closed]
+    K -- "no: failed / HTML / partial" --> M[close nothing]
 ```
+
 Tables: `postings` (canonical records), `source_postings` (source-to-posting mapping, with a stable `source_key` such as `greenhouse:stripe:1001` or `hackernews:<thread>:<comment>:<title-slug>`), `evidence`, `change_history`, `dedup_review`, `raw_responses` (content-addressed bodies in `data/raw/`), `fetch_failures`, `extraction_cache`, `llm_calls` and `runs`.
 
 **Idempotency.** `posting_id = sha1(first source_key)` is persisted. A re-seen source key updates `last_seen` and never inserts. The canonical record is rebuilt from its source rows (ATS outranks HN, and HN only fills nulls). A history row is written only when a tracked field actually differs. A source row goes inactive only if its board was fetched **completely** in this run and the posting was missing. A failed fetch, a page that returned HTML instead of JSON, a partial HN thread or an LLM failure never closes anything. A posting closes when all its sources are inactive and reopens, with history, if one comes back.

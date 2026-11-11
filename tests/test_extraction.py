@@ -4,10 +4,10 @@ import json
 import pytest
 from pydantic import ValidationError
 
-from pipeline.extractor import Extractor, MockProvider, build_snippet, evidence_guard
-from pipeline.main import to_record
+from pipeline.extract import Extractor, MockProvider, build_snippet, evidence_guard
+from pipeline.transform.records import to_record
 from pipeline.models import ExtractedRole, RawPosting
-from pipeline.normalizer import annualize, clean_title, company_key, is_target_title, looks_us, normalize_company
+from pipeline.transform.normalize import annualize, clean_title, company_key, is_target_title, looks_us, normalize_company
 
 TEXT = ("Acme | Senior Data Engineer | San Francisco, CA | Hybrid | $180k-$220k\n"
         "We use Python, Spark and Airflow.")
@@ -109,7 +109,7 @@ def test_extraction_cache_prevents_repeat_llm_calls_and_tracks_cost(conn):
 
 
 def test_budget_stops_llm_spend(conn):
-    from pipeline.extractor import BudgetExceeded
+    from pipeline.extract import BudgetExceeded
 
     ex = Extractor(FakeProvider([json.dumps(GOOD)]), conn, budget_usd=0.0)
     with pytest.raises(BudgetExceeded):

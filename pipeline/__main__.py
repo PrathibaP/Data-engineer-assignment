@@ -1,5 +1,5 @@
 import sys
 
-from .main import cli
+from pipeline.cli import cli
 
 sys.exit(cli())

@@ -1,7 +1,7 @@
 """Polite client: robots.txt, rate limiting, retries/backoff, content-type validation, failure logging."""
 from conftest import ScriptedTransport, html_resp, json_resp
 
-from pipeline.scraper_base import Response
+from pipeline.ingest.http import Response
 
 API = "https://api.example.com/jobs"
 

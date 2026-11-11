@@ -15,7 +15,7 @@ import re
 from dataclasses import dataclass, field
 from difflib import SequenceMatcher
 
-from .normalizer import normalize_title, title_core
+from pipeline.transform.normalize import normalize_title, title_core
 
 AUTO_MERGE = 0.85
 REVIEW = 0.65

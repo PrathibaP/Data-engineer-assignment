@@ -5,11 +5,11 @@ import json
 import logging
 from datetime import datetime
 
-from ..logger import get_logger, log
-from ..models import RawPosting
-from ..normalizer import html_to_text, is_target_title, looks_us, normalize_company
-from ..scraper_base import PoliteClient
-from . import SourceResult
+from pipeline.logger import get_logger, log
+from pipeline.models import RawPosting
+from pipeline.transform.normalize import html_to_text, is_target_title, looks_us, normalize_company
+from pipeline.ingest.http import PoliteClient
+from pipeline.ingest import SourceResult
 
 lg = get_logger("greenhouse")
 URL = "https://boards-api.greenhouse.io/v1/boards/{token}/jobs?content=true"

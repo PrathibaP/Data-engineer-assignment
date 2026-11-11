@@ -3,8 +3,8 @@ from datetime import date
 
 from conftest import FIXTURES
 
-from pipeline.database import connect
-from pipeline.main import run
+from pipeline.store.db import connect
+from pipeline.orchestrator import run
 
 
 def _run(settings, snap, day, now):

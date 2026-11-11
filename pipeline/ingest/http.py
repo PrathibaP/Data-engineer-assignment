@@ -25,7 +25,7 @@ from pathlib import Path
 from typing import Callable, Protocol
 from urllib.parse import urlparse
 
-from .logger import get_logger, log
+from pipeline.logger import get_logger, log
 
 lg = get_logger("http")
 
